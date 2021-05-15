@@ -12,16 +12,23 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EnglishEstonianComponent } from './english-estonian/english-estonian.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ShellComponent,
-    HeaderComponent
+    HeaderComponent,
+    EnglishEstonianComponent
   ],
   imports: [
     BrowserModule,
+    TooltipModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -29,8 +36,12 @@ import {MatIconModule} from "@angular/material/icon";
     MatButtonModule,
     MatListModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NgbModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, HomeComponent],
+  exports: [TooltipModule, NgbModule]
 })
 export class AppModule { }

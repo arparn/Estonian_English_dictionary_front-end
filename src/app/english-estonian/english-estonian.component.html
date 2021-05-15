@@ -1,0 +1,39 @@
+<div class="main">
+  <div class="section-from">
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-6">
+          <div class="change-language-div">
+            <p><u>{{language}}</u></p>
+            <button mat-mini-fab color="primary" aria-label="Change language" tooltip="{{change_language}}">
+              <mat-icon>autorenew</mat-icon>
+            </button>
+            <p><u>{{translation}}</u></p>
+          </div>
+          <div class="d-flex flex-column row-left">
+            <form class="translate-form">
+              <mat-form-field class="full-width">
+                <mat-label>{{label}}</mat-label>
+                <input matInput placeholder="Ex. hello" #word>
+              </mat-form-field>
+            </form>
+            <button mat-raised-button color="primary" title="{{buttonTranslate}}" (click)="getEstonianTranslation(word.value)">
+              {{buttonTranslate}}
+            </button>
+          </div>
+        </div>
+        <div class="col col-lg-6">
+          <div class="d-flex flex-column row-right">
+            <p *ngIf="!found_exact">{{not_found_exact}}</p>
+            <mat-list *ngFor="let est_word of estonian_words" class="list-group list-group-flush">
+              <mat-list-item>{{est_word.word}}: </mat-list-item>
+              <mat-list-item *ngFor="let trs of est_word.equivalents" class="list-group-item list-group-item-primary">
+                {{trs.word}}
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
