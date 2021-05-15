@@ -5,11 +5,11 @@ import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class EnglishEstonianService {
+export class EstonianEnglishService {
 
   constructor(private http: HttpClient) { }
 
-  getEstonianTranslation(word: string): Observable<JSON> {
-    return this.http.get<JSON>(`api/english-estonian/translate?word=${word}`);
+  getEnglishTranslation(word: string): Observable<JSON> {
+    return this.http.get<JSON>(`api/estonian-english/translate?word=${word}`);
   }
 }

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HomeService } from './home.service';
+import { DeleteEnglishService } from './delete-english.service';
 
-describe('HomeService', () => {
-  let service: HomeService;
+describe('DeleteEnglishService', () => {
+  let service: DeleteEnglishService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(HomeService);
+    service = TestBed.inject(DeleteEnglishService);
   });
 
   it('should be created', () => {

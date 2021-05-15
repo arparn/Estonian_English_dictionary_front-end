@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {EstonianWord} from "../models/estonian-word";
-import {EnglishWord} from "../models/english-word";
 import {EnglishEstonianService} from "./english-estonian.service";
 
 @Component({
@@ -10,19 +9,13 @@ import {EnglishEstonianService} from "./english-estonian.service";
 })
 export class EnglishEstonianComponent implements OnInit {
 
-  language = "Current language: English";
-  translation = "Translate to: Estonian";
-  label = 'Insert word to translate to estonian:';
-  buttonTranslate = 'Translate';
-  change_language = 'change language';
-
   found_exact = true;
-  not_found_exact = 'Exact translation not found, maybe you meant: ';
 
   estonian_words: EstonianWord[] = [];
-  english_words: EnglishWord[] = [];
 
-  constructor( private englishEstonianService: EnglishEstonianService) { }
+  not_found_text = 'Exact translation not found, maybe you meant: ';
+
+  constructor(private englishEstonianService: EnglishEstonianService) { }
 
   ngOnInit(): void {
   }
@@ -32,11 +25,15 @@ export class EnglishEstonianComponent implements OnInit {
       if (response != null) {
         this.found_exact = response['foundExact'];
         this.estonian_words = response['wordList'];
+        if (this.estonian_words.length < 1) {
+          this.not_found_text = 'Translation not found';
+        } else {
+          this.not_found_text = 'Exact translation not found, maybe you meant: ';
+        }
       } else {
         this.estonian_words = [];
-        this.found_exact = false;
+        this.found_exact = true;
       }
     });
   }
-
 }

@@ -1,0 +1,45 @@
+<div class="main">
+  <div class="section-from">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="row-center">
+            <h1>Lisa sõna eesti sõnastiku</h1>
+            <mat-form-field class="full-width">
+              <mat-label>Insert estonian word:</mat-label>
+              <input matInput placeholder="Nt. tere" [formControl]="wordFormControl" #word>
+              <mat-error *ngIf="wordFormControl.hasError('minlength') && !wordFormControl.hasError('required') && !wordFormControl.hasError('pattern')">
+                Word must contain more than 1 letter
+              </mat-error>
+              <mat-error *ngIf="wordFormControl.hasError('pattern') && !wordFormControl.hasError('required')">
+                Please enter a valid word
+              </mat-error>
+              <mat-error *ngIf="wordFormControl.hasError('required')">
+                Word is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Insert english translation:</mat-label>
+              <input matInput  placeholder="Nt. hello" [formControl]="wordFormControl2" #translation>
+              <mat-error *ngIf="wordFormControl2.hasError('minlength') && !wordFormControl2.hasError('required') && !wordFormControl2.hasError('pattern')">
+                Word must contain more than 1 letter
+              </mat-error>
+              <mat-error *ngIf="wordFormControl2.hasError('pattern') && !wordFormControl2.hasError('required')">
+                Please enter a valid word
+              </mat-error>
+              <mat-error *ngIf="wordFormControl2.hasError('required')">
+                Translation is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-checkbox color="primary" class="margin-top" [(ngModel)]="addCheck">
+              Add word and translation to english dictionary so you can search for this word in english as well
+            </mat-checkbox>
+            <button class="margin-top" mat-stroked-button color="primary" title="Add word" (click)="add(addCheck, word.value, translation.value)" aria-label="Add word show snack-bar">
+              Add word
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

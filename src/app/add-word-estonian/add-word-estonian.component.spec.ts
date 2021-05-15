@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { AddWordEstonianComponent } from './add-word-estonian.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('AddWordEstonianComponent', () => {
+  let component: AddWordEstonianComponent;
+  let fixture: ComponentFixture<AddWordEstonianComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ AddWordEstonianComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(AddWordEstonianComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

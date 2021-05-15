@@ -1,0 +1,39 @@
+<div class="main">
+  <div class="section-from">
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-6">
+          <div class="d-flex flex-column row-left">
+            <mat-form-field class="full-width">
+              <mat-label>Eesti keelde tõlkimiseks sisestage sõna:</mat-label>
+              <input matInput placeholder="Nt. tere" #word (keydown.enter)="getEnglishTranslation(word.value)">
+            </mat-form-field>
+            <button mat-raised-button color="primary" title="Translate" (click)="getEnglishTranslation(word.value)">
+              Tõlgi
+            </button>
+          </div>
+        </div>
+        <div class="col col-lg-6">
+          <div class="change-language-div">
+            <p>Praegune keel: <u>Eesti keel</u></p>
+            <button mat-mini-fab color="primary" aria-label="Change language" tooltip="muuta keelt" routerLink="/english-estonian">
+              <mat-icon>autorenew</mat-icon>
+            </button>
+            <p>Tõlgi: <u>Inglise keel</u></p>
+          </div>
+        </div>
+        <div class="col col-lg-6">
+          <div class="d-flex flex-column row-right">
+            <p *ngIf="!found_exact" class="not-found-p">{{not_found_text}}</p>
+            <mat-list *ngFor="let en_word of english_words" class="list-group list-group-flush">
+              <mat-list-item>{{en_word.word}}: </mat-list-item>
+              <mat-list-item *ngFor="let trs of en_word.equivalents" class="list-group-item list-group-item-primary">
+                {{trs.word}}
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
