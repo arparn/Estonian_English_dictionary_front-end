@@ -34,9 +34,20 @@
             <mat-checkbox color="primary" class="margin-top" [(ngModel)]="addCheck">
               Add word and translation to english dictionary so you can search for this word in english as well
             </mat-checkbox>
-            <button class="margin-top" mat-stroked-button color="primary" title="Add word" (click)="add(addCheck, word.value, translation.value)" aria-label="Add word show snack-bar">
+            <button class="margin-top" mat-raised-button disabled color="primary" title="Add word" *ngIf="
+              wordFormControl.hasError('minlength')
+              || wordFormControl.hasError('pattern')
+              || wordFormControl.hasError('required')
+              || wordFormControl2.hasError('minlength')
+              || wordFormControl2.hasError('required')
+              || wordFormControl2.hasError('pattern'); else checked" aria-label="Add word show snack-bar">
               Add word
             </button>
+            <ng-template #checked>
+              <button class="margin-top" mat-raised-button color="primary" title="Add word" aria-label="Add word show snack-bar" (click)="add(addCheck, word.value, translation.value)">
+                Add word
+              </button>
+            </ng-template>
           </div>
         </div>
       </div>

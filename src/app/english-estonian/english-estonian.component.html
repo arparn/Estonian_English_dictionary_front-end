@@ -15,16 +15,17 @@
         </div>
         <div class="col col-lg-6">
           <div class="change-language-div">
-            <p>Current language: <u>English</u></p>
+            <p>Current language: <strong>English</strong></p>
             <button mat-mini-fab color="primary" aria-label="Change language" tooltip="change language" routerLink="/estonian-english">
               <mat-icon>autorenew</mat-icon>
             </button>
-            <p>Translate to: <u>Estonian</u></p>
+            <p>Translate to: <strong>Estonian</strong></p>
           </div>
         </div>
         <div class="col col-lg-6">
+          <h2>Translation:</h2>
           <div class="d-flex flex-column row-translation">
-            <p *ngIf="!found_exact" class="not-found-p">{{not_found_text}}</p>
+            <label *ngIf="!found_exact" class="not-found-p">{{not_found_text}}</label>
             <mat-list *ngFor="let est_word of estonian_words" class="list-group list-group-flush">
               <mat-list-item>{{est_word.word}}: </mat-list-item>
               <mat-list-item *ngFor="let trs of est_word.equivalents" class="list-group-item list-group-item-primary">
