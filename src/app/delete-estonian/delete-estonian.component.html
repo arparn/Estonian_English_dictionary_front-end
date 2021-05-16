@@ -4,16 +4,16 @@
       <div class="row">
         <div class="col col-lg-6">
           <div class="d-flex flex-column row-right">
-            <h1>Kõik sõnad</h1>
+            <h1>All words</h1>
             <mat-list *ngFor="let est_word of allWords" class="list-group list-group-flush">
               <mat-list-item>
-                <button mat-icon-button color="warn" aria-label="delete" tooltip="kustuta sõna ja kõik tõlked" (click)="deleteWord(est_word.id)">
+                <button mat-icon-button color="warn" aria-label="delete" tooltip="delete word and all translations" (click)="deleteWord(est_word.id)">
                   <mat-icon>delete_forever</mat-icon>
                 </button>
                 {{est_word.word}}:
               </mat-list-item>
               <mat-list-item *ngFor="let trs of est_word.equivalents" class="list-group-item list-group-item-primary">
-                <button *ngIf="est_word.equivalents.length > 1" mat-icon-button color="warn" aria-label="delete" tooltip="kustuta tõlge" (click)="deleteTranslation(est_word.id, trs.id)">
+                <button *ngIf="est_word.equivalents.length > 1" mat-icon-button color="warn" aria-label="delete" tooltip="delete translation" (click)="deleteTranslation(est_word.id, trs.id)">
                   <mat-icon>delete</mat-icon>
                 </button>
                 {{trs.word}}
@@ -24,21 +24,21 @@
         <div class="col col-lg-6">
           <div class="d-flex flex-column row-left">
             <mat-form-field class="full-width">
-              <mat-label>Sisesta sõna mida tahad kustutada:</mat-label>
-              <input matInput placeholder="Nt. tere" #word (keydown.enter)="getWord(word.value)">
+              <mat-label>Insert word you want to delete:</mat-label>
+              <input matInput placeholder="Ex. tere" #word (keydown.enter)="getWord(word.value)">
             </mat-form-field>
             <button mat-raised-button color="primary" title="Find" (click)="getWord(word.value)">
-              Otsi
+              Find
             </button>
             <mat-list *ngFor="let e_word of englishWords" class="list-group list-group-flush">
               <mat-list-item>
-                <button mat-icon-button color="warn" aria-label="delete" tooltip="kustuta sõna ja kõik tõlked" (click)="deleteWord(e_word.id); word.value = ''">
+                <button mat-icon-button color="warn" aria-label="delete" tooltip="delete word and all translations" (click)="deleteWord(e_word.id); word.value = ''">
                   <mat-icon>delete_forever</mat-icon>
                 </button>
                 {{e_word.word}}:
               </mat-list-item>
               <mat-list-item *ngFor="let trs of e_word.equivalents" class="list-group-item list-group-item-primary">
-                <button *ngIf="e_word.equivalents.length > 1" mat-icon-button color="warn" aria-label="delete" tooltip="kustuta tõlge" (click)="deleteTranslation(e_word.id, trs.id); word.value = ''">
+                <button *ngIf="e_word.equivalents.length > 1" mat-icon-button color="warn" aria-label="delete" tooltip="delete translation" (click)="deleteTranslation(e_word.id, trs.id); word.value = ''">
                   <mat-icon>delete</mat-icon>
                 </button>
                 {{trs.word}}

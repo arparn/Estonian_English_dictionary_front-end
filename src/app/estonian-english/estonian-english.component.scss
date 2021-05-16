@@ -12,7 +12,6 @@
 
 .main {
   position: relative;
-  height: 100%;
 }
 
 .section-from {
@@ -28,7 +27,15 @@
   margin: 1em;
 }
 
-.row-right {
+.row-translation {
+  padding: 1em;
+  margin: 1em;
+}
+
+.row-history {
+  border-style: solid;
+  border-color: #3f51b5;
+  border-radius: 5px;
   padding: 1em;
   margin: 1em;
 }
@@ -38,19 +45,22 @@
   border-color: #3f51b5;
   border-radius: 5px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 1em;
   margin: 1em;
 }
 
 p {
-  margin-top: 1em;
+  margin: 1em;
+  position: static;
+  max-width: 250px;
+  width: 100%;
 }
 
 button {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin: 0.5em;
   align-self: center;
+  position: static;
 }
 
 .full-width {

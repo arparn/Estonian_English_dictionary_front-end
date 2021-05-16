@@ -23,9 +23,20 @@
           </div>
         </div>
         <div class="col col-lg-6">
-          <div class="d-flex flex-column row-right">
+          <div class="d-flex flex-column row-translation">
             <p *ngIf="!found_exact" class="not-found-p">{{not_found_text}}</p>
             <mat-list *ngFor="let est_word of estonian_words" class="list-group list-group-flush">
+              <mat-list-item>{{est_word.word}}: </mat-list-item>
+              <mat-list-item *ngFor="let trs of est_word.equivalents" class="list-group-item list-group-item-primary">
+                {{trs.word}}
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+        <div class="col col-lg-6">
+          <h2>History:</h2>
+          <div class="d-flex flex-column row-history">
+            <mat-list *ngFor="let est_word of history" class="list-group list-group-flush">
               <mat-list-item>{{est_word.word}}: </mat-list-item>
               <mat-list-item *ngFor="let trs of est_word.equivalents" class="list-group-item list-group-item-primary">
                 {{trs.word}}

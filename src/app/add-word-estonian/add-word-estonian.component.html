@@ -4,10 +4,10 @@
       <div class="row">
         <div class="col">
           <div class="row-center">
-            <h1>Lisa sõna eesti sõnastiku</h1>
+            <h1>Add word to estonian dictionary</h1>
             <mat-form-field class="full-width">
               <mat-label>Insert estonian word:</mat-label>
-              <input matInput placeholder="Nt. tere" [formControl]="wordFormControl" #word>
+              <input matInput placeholder="Ex. tere" [formControl]="wordFormControl" #word>
               <mat-error *ngIf="wordFormControl.hasError('minlength') && !wordFormControl.hasError('required') && !wordFormControl.hasError('pattern')">
                 Word must contain more than 1 letter
               </mat-error>
@@ -20,7 +20,7 @@
             </mat-form-field>
             <mat-form-field class="full-width">
               <mat-label>Insert english translation:</mat-label>
-              <input matInput  placeholder="Nt. hello" [formControl]="wordFormControl2" #translation>
+              <input matInput  placeholder="Ex. hello" [formControl]="wordFormControl2" #translation>
               <mat-error *ngIf="wordFormControl2.hasError('minlength') && !wordFormControl2.hasError('required') && !wordFormControl2.hasError('pattern')">
                 Word must contain more than 1 letter
               </mat-error>

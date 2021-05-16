@@ -1,18 +1,18 @@
 <mat-toolbar class="mat-elevation-z6" color="primary">
   <span class="title">{{ title }}</span>
-  <button class="action-btn" mat-button [matMenuTriggerFor]="translate">Tõlgi/Translate</button>
+  <button class="action-btn" mat-button [matMenuTriggerFor]="translate">Translate</button>
   <mat-menu #translate="matMenu">
       <button mat-menu-item routerLink="/english-estonian">Translate to estonian</button>
-    <button mat-menu-item routerLink="/estonian-english">Tõlgi inglise keele</button>
+    <button mat-menu-item routerLink="/estonian-english">Translate to english</button>
   </mat-menu>
-  <button mat-button [matMenuTriggerFor]="add">Lisa/Add</button>
+  <button mat-button [matMenuTriggerFor]="add">Add</button>
   <mat-menu #add="matMenu">
-    <button mat-menu-item routerLink="/add-estonian">Lisa uus sõna</button>
-    <button mat-menu-item routerLink="/add-english">Add new word</button>
+    <button mat-menu-item routerLink="/add-estonian">Add estonian word</button>
+    <button mat-menu-item routerLink="/add-english">Add english word</button>
   </mat-menu>
-  <button mat-button [matMenuTriggerFor]="delete">Kustuta/Delete</button>
+  <button mat-button [matMenuTriggerFor]="delete">Delete</button>
   <mat-menu #delete="matMenu">
-    <button mat-menu-item routerLink="/delete-estonian">Kustuta sõna/tõlge</button>
-    <button mat-menu-item routerLink="/delete-english">Delete word/translation</button>
+    <button mat-menu-item routerLink="/delete-estonian">Delete estonian word/translation</button>
+    <button mat-menu-item routerLink="/delete-english">Delete english word/translation</button>
   </mat-menu>
 </mat-toolbar>

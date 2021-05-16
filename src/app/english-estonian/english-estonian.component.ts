@@ -12,6 +12,7 @@ export class EnglishEstonianComponent implements OnInit {
   found_exact = true;
 
   estonian_words: EstonianWord[] = [];
+  history: EstonianWord[] = [];
 
   not_found_text = 'Exact translation not found, maybe you meant: ';
 
@@ -25,6 +26,7 @@ export class EnglishEstonianComponent implements OnInit {
       if (response != null) {
         this.found_exact = response['foundExact'];
         this.estonian_words = response['wordList'];
+        this.history.push.apply(this.history, response['wordList']);
         if (this.estonian_words.length < 1) {
           this.not_found_text = 'Translation not found';
         } else {
